@@ -9,26 +9,25 @@ import java.util.Map;
 import java.util.List;
 
 public class DashboardGUI extends JFrame {
-    // Ultra-Premium Cyberpunk Obsidian Theme
-    private final Color COLOR_BG = new Color(0x0B, 0x0C, 0x10);       // Pure Abyss Black
-    private final Color COLOR_SURFACE = new Color(0x1F, 0x28, 0x33);  // Sleek Dark Charcoal Metallic
-    private final Color COLOR_SIDEBAR = new Color(0x15, 0x1A, 0x21);  // Deep Slate Panel
-    private final Color COLOR_CYAN = new Color(0x66, 0xFC, 0xF1);     // Neon Electric Cyan
+    private final Color COLOR_BG = new Color(0x0B, 0x0C, 0x10);       
+    private final Color COLOR_SURFACE = new Color(0x1F, 0x28, 0x33);  
+    private final Color COLOR_SIDEBAR = new Color(0x15, 0x1A, 0x21);  
+    private final Color COLOR_CYAN = new Color(0x66, 0xFC, 0xF1);     
     private final Color COLOR_DARK_CYAN = new Color(0x45, 0xB2, 0x9D);
-    private final Color COLOR_NEON_PINK = new Color(0xFF, 0x00, 0x55); // Laser Crimson Action Button
-    private final Color COLOR_TEXT_MAIN = new Color(0xC5, 0xA5, 0xC5); // Titanium White-Silver
-    private final Color COLOR_TEXT_MUTE = new Color(0x66, 0x72, 0x7A); // Cool Muted Gray
+    private final Color COLOR_NEON_PINK = new Color(0xFF, 0x00, 0x55); 
+    private final Color COLOR_TEXT_MAIN = new Color(0xC5, 0xA5, 0xC5);
+    private final Color COLOR_TEXT_MUTE = new Color(0x66, 0x72, 0x7A); 
 
     private JPanel cardPanel;
     private CardLayout cardLayout;
 
-    // Backend Hooks
+    
     private final WorldClockManager clockManager = new WorldClockManager();
     private final PrayerTimeManager prayerManager = new PrayerTimeManager();
     private final TaskManager taskManager = new TaskManager();
     private final AlarmManager alarmManager = new AlarmManager();
 
-    // Live Metrics Components
+    
     private JLabel totalTasksCountLabel;
     private JLabel activeAlarmsCountLabel;
 
@@ -47,7 +46,7 @@ public class DashboardGUI extends JFrame {
         sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
         sidebar.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, new Color(0x1F, 0x28, 0x33)));
 
-        // Branding Title Head
+       
         JLabel titleLabel = new JLabel("CHRONOSPHERE");
         titleLabel.setFont(new Font("Consolas", Font.BOLD, 24));
         titleLabel.setForeground(COLOR_CYAN);
@@ -63,19 +62,19 @@ public class DashboardGUI extends JFrame {
         sidebar.add(titleLabel);
         sidebar.add(subtitleLabel);
 
-        // --- MAIN APPLICATION SCREEN DISPLAY DECK ---
+        // --- MAIN APPLICATION SCREEN -----
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
         cardPanel.setBackground(COLOR_BG);
 
-        // Attach UI Screens
+       
         cardPanel.add(buildHomeDashboard(), "Dashboard");
         cardPanel.add(buildWorldClockPanel(), "WorldClock");
         cardPanel.add(buildPrayerPanel(), "PrayerTimes");
         cardPanel.add(buildTaskPanel(), "Tasks");
         cardPanel.add(buildAlarmPanel(), "Alarms");
 
-        // Inject Modern Navigation Links
+        
         addSleekNavLink(sidebar, " SYSTEM METRICS", "Dashboard");
         addSleekNavLink(sidebar, " GLOBAL TIMEWATCH", "WorldClock");
         addSleekNavLink(sidebar, " CHRONO PRAYER", "PrayerTimes");
@@ -85,7 +84,7 @@ public class DashboardGUI extends JFrame {
         add(sidebar, BorderLayout.WEST);
         add(cardPanel, BorderLayout.CENTER);
         
-        // Populate view counters on initial screen launch
+        
         updateDynamicMetricsCounters();
     }
 
@@ -170,7 +169,7 @@ public class DashboardGUI extends JFrame {
         return headerPanel;
     }
 
-    // --- VIEW 1: HOME MAIN DASHBOARD OVERHAUL ---
+   
     private JPanel buildHomeDashboard() {
         JPanel mainContainer = new JPanel(new BorderLayout(30, 30));
         mainContainer.setBackground(COLOR_BG);
@@ -178,11 +177,11 @@ public class DashboardGUI extends JFrame {
 
         mainContainer.add(createSectionHeader("SYSTEM OPERATIONS MAINBOARD", "Real-time summary data indexes"), BorderLayout.NORTH);
 
-        // Center Panel holds Hero Clock + Metrics Display Matrix Cards
+        
         JPanel centerGrid = new JPanel(new GridLayout(2, 1, 30, 30));
         centerGrid.setBackground(COLOR_BG);
 
-        // Huge Neon Central Clock Component Panel
+        
         JPanel timeHeroCard = new JPanel(new GridBagLayout());
         timeHeroCard.setBackground(COLOR_SURFACE);
         timeHeroCard.setBorder(BorderFactory.createLineBorder(new Color(0x2F, 0x3B, 0x4C), 1));
@@ -211,11 +210,11 @@ public class DashboardGUI extends JFrame {
         });
         ticker.start();
 
-        // Dual Bottom Horizontal Display Data Cards Row
+        
         JPanel subCardsGrid = new JPanel(new GridLayout(1, 2, 30, 0));
         subCardsGrid.setBackground(COLOR_BG);
 
-        // Task Data Metrics Panel Block
+    
         JPanel taskCard = new JPanel(new BorderLayout());
         taskCard.setBackground(COLOR_SURFACE);
         taskCard.setBorder(new EmptyBorder(20, 25, 20, 25));
@@ -228,7 +227,7 @@ public class DashboardGUI extends JFrame {
         taskCard.add(taskTitle, BorderLayout.NORTH);
         taskCard.add(totalTasksCountLabel, BorderLayout.CENTER);
 
-        // Alarm Metrics Block
+       
         JPanel alarmCard = new JPanel(new BorderLayout());
         alarmCard.setBackground(COLOR_SURFACE);
         alarmCard.setBorder(new EmptyBorder(20, 25, 20, 25));
@@ -251,7 +250,7 @@ public class DashboardGUI extends JFrame {
         return mainContainer;
     }
 
-    // --- VIEW 2: WORLD CLOCK CONTROL OVERHAUL ---
+    
     private JPanel buildWorldClockPanel() {
         JPanel mainContainer = new JPanel(new BorderLayout(20, 20));
         mainContainer.setBackground(COLOR_BG);
@@ -288,7 +287,7 @@ public class DashboardGUI extends JFrame {
         return mainContainer;
     }
 
-    // --- VIEW 3: PRAYER PANEL OVERHAUL ---
+  
     private JPanel buildPrayerPanel() {
         JPanel mainContainer = new JPanel(new BorderLayout(20, 20));
         mainContainer.setBackground(COLOR_BG);
@@ -331,7 +330,7 @@ public class DashboardGUI extends JFrame {
         return mainContainer;
     }
 
-    // --- VIEW 4: OPERATIONS TASKER PANEL OVERHAUL ---
+    
     private JPanel buildTaskPanel() {
         JPanel mainContainer = new JPanel(new BorderLayout(20, 20));
         mainContainer.setBackground(COLOR_BG);
@@ -352,7 +351,7 @@ public class DashboardGUI extends JFrame {
         taskList.setFixedCellHeight(40);
         taskList.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        // Horizontal Panel Configuration for Data Entry Forms
+        
         JPanel inputGrid = new JPanel(new GridLayout(1, 3, 15, 0));
         inputGrid.setBackground(COLOR_BG);
         final JTextField txtDate = new JTextField("05-07-2026");
@@ -368,7 +367,7 @@ public class DashboardGUI extends JFrame {
         inputGrid.add(txtDesc);
         inputGrid.add(btnAdd);
 
-        // Control Panel Modification Buttons Footer Area Strip
+        
         JPanel controlRow = new JPanel(new GridLayout(1, 2, 25, 0));
         controlRow.setBackground(COLOR_BG);
         controlRow.setPreferredSize(new Dimension(0, 48));
@@ -382,7 +381,7 @@ public class DashboardGUI extends JFrame {
         controlRow.add(btnDeleteSelected);
         controlRow.add(btnClearAll);
 
-        // Wiring Events Logic Block Configurations
+        
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -429,7 +428,7 @@ public class DashboardGUI extends JFrame {
         return mainContainer;
     }
 
-    // --- VIEW 5: ALARM VIEW MATRIX PANEL OVERHAUL ---
+    
     private JPanel buildAlarmPanel() {
         JPanel mainContainer = new JPanel(new BorderLayout(20, 20));
         mainContainer.setBackground(COLOR_BG);
