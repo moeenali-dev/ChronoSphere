@@ -1,3 +1,5 @@
+
+
 # ChronoSphere // Digital Nexus v2.0
 
 ChronoSphere is a sleek, modular desktop command dashboard built from scratch using **Java Swing**. It combines everyday utility tracking modules—like an operations scheduler, dynamic alerts, localized tools, and international time zone monitoring—into a single unified visual interface.
@@ -22,24 +24,37 @@ By separating the visual design from the engine logic, the application remains i
 This is the central cockpit of the application. 
 * **The Engine:** It features a dedicated application timer that checks the local system time every 1,000 milliseconds, allowing the interface to display a beautiful live-updating clock and calendar on a background thread.
 * **Dynamic Counters:** It links directly to your task log and alarm arrays to display live metrics showing your total active operational workloads at a glance.
+* SCREENSHOT: 
+<img width="1600" height="808" alt="WhatsApp Image 2026-07-05 at 6 41 54 PM" src="https://github.com/user-attachments/assets/2beef851-1f67-4a45-9d03-ca028952325a" />
 
 ### 🌐 2. Global Zone Monitor (World Clock Engine)
 Tracks and converts time across multiple international target regions simultaneously.
 * **The Engine:** Built using standard Java time frameworks (`ZonedDateTime` and `Map.Entry`), it takes your local system time, maps it against specific international time zone identifiers, and formats them side-by-side inside a clean text block window.
+* SCREENSHOT:
+* <img width="1600" height="805" alt="WhatsApp Image 2026-07-05 at 6 42 27 PM" src="https://github.com/user-attachments/assets/42b77182-1a95-43d6-a428-8b9a5beb7594" />
+
 
 ### 🕌 3. Chrono Prayer Watch (Localized Tracker)
 Provides instantaneous lookup capabilities for major regional cities without requiring a slow internet connection.
 * **The Engine:** Instead of querying external APIs, it utilizes an optimized static data lookup structure. When a user changes the city selection dropdown, the system immediately pulls the exact pre-mapped time schedules from memory and redraws the display vector without any lag.
+* SCREENSHOT:
+*  1: <img width="1600" height="806" alt="WhatsApp Image 2026-07-05 at 6 43 02 PM" src="https://github.com/user-attachments/assets/8560b1d2-30ab-4c09-b10e-a8ee0a1d4446" />
+   2: <img width="1600" height="811" alt="WhatsApp Image 2026-07-05 at 6 43 45 PM" src="https://github.com/user-attachments/assets/e5b984ae-661d-415b-8e0d-c4c7796ca3f6" />
+ 
 
 ### 📅 4. Central Task Matrix (Operation Scheduler)
 A persistent schedule tracking log that keeps your entries safe even when the application is closed.
 * **The Engine:** This module runs on raw Java File I/O (`BufferedReader` and `PrintWriter`). When you type a task, it appends it directly onto a flat-file database (`tasks.txt`). 
 * **Data Manipulation:** It reads the text file into an array layout list to populate the UI. If a user selects a task and hits delete, the engine calculates the exact line index, removes it from the array memory, and perfectly overwrites the text file clean.
+* SCREENSHOT:
+* <img width="1600" height="809" alt="WhatsApp Image 2026-07-05 at 6 44 11 PM" src="https://github.com/user-attachments/assets/e7d9075e-6c8f-44c7-b92a-870da7d6f022" />
+
 
 ### ⏰ 5. Alarm Matrix System (Active Alerts)
 A lightweight alert-logging system running inside the active runtime environment.
 * **The Engine:** It registers target alert times directly into an active variables tracking array. It features manual intercept controls, giving users the power to highlight a specific active frequency slot and terminate it completely from system memory.
-
+* SCREENSHOT:
+* <img width="1600" height="805" alt="WhatsApp Image 2026-07-05 at 6 44 42 PM" src="https://github.com/user-attachments/assets/461d740d-9923-4d69-b8dc-f6cbc505a58f" />
 ---
 
 ## 🛠️ Key Technical Concepts Applied
@@ -64,3 +79,4 @@ your-folder/
 ├── AlarmManager.java    (Alert tracking logic)
 ├── PrayerTimeManager.java (Static data map lookup)
 └── WorldClockManager.java (Time zone conversion logic)
+
