@@ -9,7 +9,7 @@ import java.util.Map;
 public class WorldClockManager {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a dd-MM-yyyy");
 
-    // Returns a map of pre-defined city times
+    
     public Map<String, String> getAllWorldTimes() {
         Map<String, String> times = new HashMap<>();
         times.put("Pakistan (PKT)", getCurrentTimeInZone("Asia/Karachi"));
@@ -20,7 +20,7 @@ public class WorldClockManager {
         return times;
     }
 
-    // Dynamic search feature logic
+    
     public String getCustomZoneTime(String zoneIdStr) {
         try {
             ZoneId zoneId = ZoneId.of(zoneIdStr);
